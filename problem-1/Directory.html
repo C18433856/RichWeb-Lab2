@@ -6,7 +6,26 @@
 <link rel="stylesheet" href="">
 <script src=""></script>
 <body>
-
-
+    <h1>Phone Directory</h1>
+    <br>
+    <div id="enter-contact">
+        <input type="text" id="Name" placeholder="Contact Name">
+        <input type="text" id="Mobile" placeholder="Mobile Number">
+        <input type="text" id="Email" placeholder="Email">
+        <button id="insert">Add Contact</button>
+    </div>
+    <br>
+    <label for="contact-search">Search by mobile number:</label><input type="search" id="contact-search">
+    <br><br>
+    <h3>Contacts Summary</h3>
+    <div id="contacts">
+        <table id=contacts-list>
+            <tr>
+                <th>Name</th>
+                <th>Mobile</th>
+                <th>Email</th>
+            </tr>                       
+        </table>
+    </div>
 </body>
 </html>
