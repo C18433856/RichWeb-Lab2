@@ -16,3 +16,7 @@ table{
     border: 2px solid blue;
     border-radius: 15px;
 }
+
+#input_error{
+    display: none;
+}
