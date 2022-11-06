@@ -7,6 +7,15 @@ table{
     margin: auto;
 }
 
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    min-width: 15vw;
+}
+
 #enter-contact{
     background-color: lightblue;
     width: 50vw;
@@ -17,6 +26,6 @@ table{
     border-radius: 15px;
 }
 
-#input_error{
+#input-error{
     display: none;
 }
