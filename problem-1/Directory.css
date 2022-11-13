@@ -26,6 +26,6 @@ th, td {
     border-radius: 15px;
 }
 
-#input-error{
+#input-error, #noResult{
     display: none;
 }
