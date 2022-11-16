@@ -57,6 +57,23 @@ document.getElementById("name-header").onclick = function(){
                 if(contacts[j].firstChild.innerHTML.toLowerCase() < contacts[j + 1].firstChild.innerHTML.toLowerCase())
                     contactTable.insertBefore(contacts[j + 1], contacts[j]);
     }
+    resetBackground()
+}
+
+document.getElementById("contact-search").onkeyup = function(){
+    let input, value, table, rows, i
+    input = document.getElementById('contact-search');
+    contactTable = document.getElementById("contacts-list");
+    rows = contactTable.rows;
+  
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 1; i < rows.length; i++) {
+      if (rows[i].childNodes[i].innerHTML.indexOf(input.value) > -1)
+        rows[i].style.display = "";
+      else
+        rows[i].style.display = "none";
+    }
+    resetBackground()
 }
 
 function ValidateInput(input_name, input_mobile, input_email){
@@ -64,4 +81,25 @@ function ValidateInput(input_name, input_mobile, input_email){
     if (! /^[0-9]*$/.test(input_mobile) || input_mobile.length != 10) return false;
     if (! input_email.includes("@") || input_email.length > 40) return false;
     return true;
+}
+
+function resetBackground(){
+    let contactTable = document.getElementById("contacts-list");
+    let rows = contactTable.rows;
+    let fill = true;
+    let i;
+    for (i = 1; i < rows.length; i++) {
+        if(rows[i].style.display != "none"){
+            alert("Look at me I worked");
+            if(fill){
+                rows[i].style.backgroundColor =  "#f2f2f2";
+                fill = false;
+            }
+            else{
+                rows[i].style.backgroundColor = "white";
+                fill = true;
+            }
+        }
+    }
+
 }
