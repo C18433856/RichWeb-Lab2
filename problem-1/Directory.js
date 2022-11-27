@@ -1,6 +1,7 @@
-var background_var = 1;
-var sorting = "ascend";
+var background_var = 1;     // Keep track of which background color a contact entry should have
+var sorting = "ascend";     // Keep track of what the next sorting pattern should be
 
+// Check if the user has input a correct contact and add it to the contact list
 document.getElementById("insert").onclick = function(){
     const input_name = document.getElementById("Name");
     const input_mobile = document.getElementById("Mobile");
@@ -38,6 +39,7 @@ document.getElementById("insert").onclick = function(){
     input_email.value = "";
 }
 
+// sort the contacts by ascending or descending name value
 document.getElementById("name-header").onclick = function(){
     let i, j;
     let contactTable = document.getElementById("contacts-list");
@@ -60,22 +62,24 @@ document.getElementById("name-header").onclick = function(){
     resetBackground()
 }
 
+// Is triggered when a user is typing a number to search for
 document.getElementById("contact-search").onkeyup = function(){
     let input, value, table, rows, i
     input = document.getElementById('contact-search');
     contactTable = document.getElementById("contacts-list");
     rows = contactTable.rows;
   
-    // Loop through all list items, and hide those who don't match the search query
+    // Check each contact number for the search term
     for (i = 1; i < rows.length; i++) {
-      if (rows[i].childNodes[i].innerHTML.indexOf(input.value) > -1)
+      if (rows[i].childNodes[1].innerHTML.indexOf(input.value) > -1)    // If the search value is found show contact
         rows[i].style.display = "";
-      else
+      else                                                              // If the search value is not found hide contact
         rows[i].style.display = "none";
     }
     resetBackground()
 }
 
+// Check if the user input is valid
 function ValidateInput(input_name, input_mobile, input_email){
     if (! /^[A-Za-z\s]*$/.test(input_name) || input_name.length > 20) return false;
     if (! /^[0-9]*$/.test(input_mobile) || input_mobile.length != 10) return false;
@@ -83,14 +87,14 @@ function ValidateInput(input_name, input_mobile, input_email){
     return true;
 }
 
+// After sorting or searching, ensure the background of the contacts is set correctly
 function resetBackground(){
     let contactTable = document.getElementById("contacts-list");
     let rows = contactTable.rows;
     let fill = true;
     let i;
     for (i = 1; i < rows.length; i++) {
-        if(rows[i].style.display != "none"){
-            alert("Look at me I worked");
+        if(rows[i].style.display != "none"){    // Only apply to visible contacts
             if(fill){
                 rows[i].style.backgroundColor =  "#f2f2f2";
                 fill = false;
