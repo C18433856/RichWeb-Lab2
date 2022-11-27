@@ -4,7 +4,7 @@ html{
 #user-profile, #user-repos{
     border: 1px solid black;
     width: 35vw;
-    height: 90vh;
+    height: 80vh;
     display: inline-block;
     vertical-align: top;
     box-sizing: border-box;
@@ -17,4 +17,27 @@ html{
 #user-profile div{
     border-bottom: 0.5px solid black;
     box-sizing: border-box;
+}
+
+#the-avatar{
+    max-height:100%;
+    max-width: 100%;
+}
+
+.profile-field{
+    text-align: left;
+    padding: 3px;
+}
+
+#username-input{
+    width: 25vw; 
+    height: 4vh;
+    margin-right: 2vw;
+}
+
+#search-button{
+    width: 10vw; 
+    height: 6vh;
+    border-radius: 25px;
+    font-size: 1.5vw;
 }
